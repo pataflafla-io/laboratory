@@ -9,7 +9,7 @@ export const BreadcrumbItemPath = () => {
     return (
         currentPath !== '/' &&
         <>
-            <BreadcrumbSeparator className="hidden md:block" />
+            <BreadcrumbSeparator />
             <BreadcrumbItem>
                 <BreadcrumbPage>{currentPath.slice(1)}</BreadcrumbPage>
             </BreadcrumbItem>

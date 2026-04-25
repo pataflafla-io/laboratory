@@ -66,7 +66,7 @@ export default function RootLayout({
                 />
                 <Breadcrumb>
                   <BreadcrumbList>
-                    <BreadcrumbItem className="hidden md:block">
+                    <BreadcrumbItem>
                       <BreadcrumbLink href="/">Home</BreadcrumbLink>
                     </BreadcrumbItem>
                     <BreadcrumbItemPath />

@@ -17,14 +17,18 @@ const substractingDays = (howManyDays: number): string => {
 
 const getApods = async (howMany: number): Promise<SimpleApod[]> => {
 
-    const env = process.env.NASA_KEY;
-    const limit = substractingDays(howMany)
-    const data: NasaResponse[] = await fetch(`https://api.nasa.gov/planetary/apod?api_key=${env}&start_date=${limit}`)
-        .then(response => response.json());
+    try {
+        const env = process.env.NASA_KEY;
+        const limit = substractingDays(howMany)
+        const data: NasaResponse[] = await fetch(`https://api.nasa.gov/planetary/apod?api_key=${env}&start_date=${limit}`)
+            .then(response => response.json());
 
-    const apods: SimpleApod[] = data.filter((apod) => apod.media_type === MediaType.Image)
-        .map(({ date, title, url }: NasaResponse) => ({ date, title, url }))
-    return apods;
+        const apods: SimpleApod[] = data.filter((apod) => apod.media_type === MediaType.Image)
+            .map(({ date, title, url }: NasaResponse) => ({ date, title, url }))
+        return apods;
+    } catch (error) {
+        return []
+    }
 }
 
 export const Apod = async () => {

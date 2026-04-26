@@ -32,7 +32,7 @@ const getApods = async (howMany: number): Promise<SimpleApod[]> => {
 }
 
 export const Apod = async () => {
-    const apods = await getApods(9)
+    const apods = await getApods(100)
     return (
         <ItemGroup className="grid grid-cols-3 gap-4 mt-5 mb-5">
             <ApodGrid apods={apods} />

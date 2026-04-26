@@ -30,6 +30,11 @@ const data = {
           title: 'Counter',
           url: '/counter',
         },
+        {
+          icon: <GiCalculator />,
+          title: 'Apod',
+          url: '/apod',
+        },
       ],
     },
   ],

@@ -7,6 +7,10 @@ const nextConfig: NextConfig = {
         protocol: 'https',
         hostname: 'apod.nasa.gov',
       },
+      {
+        protocol: 'https',
+        hostname: 'cdn.shadcnstudio.com'
+      }
     ],
   }
 };

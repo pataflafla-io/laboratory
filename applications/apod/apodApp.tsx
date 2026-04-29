@@ -7,19 +7,12 @@ import { MediaType, NasaResponse } from './interfaces/NasaResponse';
 import { SimpleApod } from "./interfaces/SimpleApod";
 
 import { ApodGrid } from "@/applications/apod/components/ApodGrid";
-
-const substractingDays = (howManyDays: number): string => {
-    const date = new Date();
-    date.setDate(date.getDate() - howManyDays);
-    const formattedDate = date.toISOString().split('T')[0];
-    return formattedDate;
-}
+import { substractingDaysFromToday } from "@/lib/helpers/substractsDaysFromToday";
 
 const getApods = async (howMany: number): Promise<SimpleApod[]> => {
-
     try {
         const env = process.env.NASA_KEY;
-        const limit = substractingDays(howMany)
+        const limit = substractingDaysFromToday(howMany)
         const data: NasaResponse[] = await fetch(`https://api.nasa.gov/planetary/apod?api_key=${env}&start_date=${limit}`)
             .then(response => response.json());
 
@@ -30,7 +23,6 @@ const getApods = async (howMany: number): Promise<SimpleApod[]> => {
         return []
     }
 }
-
 export const Apod = async () => {
     const apods = await getApods(100)
     return (

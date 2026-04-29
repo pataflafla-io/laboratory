@@ -6,6 +6,7 @@ export interface NasaResponse {
     media_type: MediaType;
     title: string;
     url: string;
+    code?: number;
 }
 
 export enum MediaType {

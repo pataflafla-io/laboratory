@@ -13,7 +13,7 @@ import {
   SidebarRail,
 } from '@/components/ui/sidebar';
 
-import { GiCalculator } from "react-icons/gi";
+import { GiAstronautHelmet, GiCalculator } from "react-icons/gi";
 import { SidebarItem } from './client/sidebar-item';
 
 
@@ -31,7 +31,7 @@ const data = {
           url: '/counter',
         },
         {
-          icon: <GiCalculator />,
+          icon: <GiAstronautHelmet />,
           title: 'Apod',
           url: '/apod',
         },

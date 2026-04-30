@@ -22,7 +22,7 @@ export const ApodCard = ({ apod }: Props) => {
                     alt={title}
                     width={256}
                     height={256}
-                    className="aspect-square w-full rounded-sm object-cover"
+                    className="aspect-square w-full rounded-sm object-cover grayscale brightness-50"
                     priority={false}
                 />
             </ItemHeader>

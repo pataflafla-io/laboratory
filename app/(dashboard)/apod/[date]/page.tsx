@@ -46,7 +46,7 @@ const getApod = async (date: string): Promise<NasaResponse> => {
 
 export default async function NamePage({ params }: Props) {
     const { date } = await params;
-    const { title, explanation, url, code } = await getApod(date)
+    const { title, explanation, hdurl, url, code } = await getApod(date)
     if (code) notFound()
 
     return (
@@ -60,8 +60,7 @@ export default async function NamePage({ params }: Props) {
                 alt={title}
                 width={512}
                 height={512}
-                className="relative z-20 mt-5 mb-5 aspect-video w-full object-cover brightness-60 grayscale dark:brightness-40"
-                priority={false}
+                className="relative z-20 mt-5 mb-5 w-full object-cover"
             />
         </>
     );

@@ -1,4 +1,5 @@
 import { NasaResponse } from "@/applications/apod/interfaces/NasaResponse";
+import { substractingDaysFromToday } from "@/lib/helpers/substractsDaysFromToday";
 import { Metadata } from "next";
 
 
@@ -10,6 +11,17 @@ interface Props {
     params: {
         date: string
     }
+}
+
+export async function generateStaticParams() {
+    const env = process.env.NASA_KEY;
+    return Array.from({ length: 100 })
+        .map((value, index) => {
+            return {
+                'api_key': env,
+                'date': substractingDaysFromToday(index)
+            }
+        })
 }
 
 export const generateMetadata = async ({ params }: Props): Promise<Metadata> => {
@@ -32,7 +44,6 @@ const getApod = async (date: string): Promise<NasaResponse> => {
     }
 }
 
-
 export default async function NamePage({ params }: Props) {
     const { date } = await params;
     const { title, explanation, url, code } = await getApod(date)
@@ -52,9 +63,6 @@ export default async function NamePage({ params }: Props) {
                 className="relative z-20 mt-5 mb-5 aspect-video w-full object-cover brightness-60 grayscale dark:brightness-40"
                 priority={false}
             />
-
-
-
         </>
     );
 }

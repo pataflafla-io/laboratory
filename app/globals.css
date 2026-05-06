@@ -124,4 +124,8 @@
   body {
     @apply bg-background text-foreground;
   }
+
+  a:not(.unstyled)  {
+    @apply text-cyan-800 dark:text-cyan-400 hover:underline;
+  }
 }

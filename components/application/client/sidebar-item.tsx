@@ -17,7 +17,7 @@ export const SidebarItem = ({ title, url, icon }: Props) => {
         <SidebarMenuButton asChild isActive={currentPath === url}>
             <div>
                 {icon && <i>{icon}</i>}
-                <Link href={url}>{title}</Link>
+                <Link className='unstyled' href={url}>{title}</Link>
             </div>
         </SidebarMenuButton>
     )

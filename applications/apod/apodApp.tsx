@@ -8,8 +8,12 @@ import { SimpleApod } from "./interfaces/SimpleApod";
 
 import { ApodGrid } from "@/applications/apod/components/ApodGrid";
 import { substractingDaysFromToday } from "@/lib/helpers/substractsDaysFromToday";
+import { cacheLife } from "next/cache";
 
 const getApods = async (howMany: number): Promise<SimpleApod[]> => {
+
+    'use cache';
+    cacheLife('days');
     try {
         const env = process.env.NASA_KEY;
         const limit = substractingDaysFromToday(howMany)

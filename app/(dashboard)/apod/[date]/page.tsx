@@ -1,10 +1,12 @@
+import { ApodImage } from "@/applications/apod/components/ApodImage";
 import { NasaResponse } from "@/applications/apod/interfaces/NasaResponse";
 import { substractingDaysFromToday } from "@/lib/helpers/substractsDaysFromToday";
 import { Metadata } from "next";
+import { cacheTag } from "next/cache";
+import Link from "next/link";
 
-
-import Image from "next/image";
 import { notFound } from "next/navigation";
+import { HeartIcon } from 'lucide-react';
 
 
 interface Props {
@@ -34,34 +36,33 @@ export const generateMetadata = async ({ params }: Props): Promise<Metadata> => 
 }
 
 const getApod = async (date: string): Promise<NasaResponse> => {
+    'use cache';
+    cacheTag('apod', date);
     try {
         const env = process.env.NASA_KEY;
         const data: NasaResponse = await fetch(`https://api.nasa.gov/planetary/apod?api_key=${env}&date=${date}`)
             .then(response => response.json());
         return data;
     } catch (error) {
-        return {} as NasaResponse;
+        notFound()
     }
 }
 
-export default async function NamePage({ params }: Props) {
+export default async function ApodSinglePage({ params }: Props) {
     const { date } = await params;
-    const { title, explanation, hdurl, url, code } = await getApod(date)
-    if (code) notFound()
+
+    const { title, explanation, hdurl, url, code } = await getApod(date);
 
     return (
         <>
-            <h1 className="block text-4xl mb-3">
+            {code && notFound()}
+            <h1 className="text-4xl mb-3 flex items-center justify-between">
                 {title}
+                <Link href=""><HeartIcon /></Link>
             </h1>
             {explanation}
-            <Image
-                src={url}
-                alt={title}
-                width={512}
-                height={512}
-                className="relative z-20 mt-5 mb-5 w-full object-cover"
-            />
+
+            <ApodImage src={url} alt={title} />
         </>
     );
 }

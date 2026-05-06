@@ -8,6 +8,7 @@ import {
 } from "@/components/ui/item"
 import { SimpleApod } from "../interfaces/SimpleApod";
 import { ApodAction } from "./ApodAction";
+import Link from "next/link";
 
 interface Props {
     apod: SimpleApod
@@ -27,7 +28,9 @@ export const ApodCard = ({ apod }: Props) => {
                 />
             </ItemHeader>
             <ItemContent>
-                <ItemTitle>{title}</ItemTitle>
+                <ItemTitle>
+                    <Link className="unstyled hover:underline" href={`apod/${url}`}>{title}</Link>
+                </ItemTitle>
             </ItemContent>
             <ItemActions>
                 <ApodAction url={url} />

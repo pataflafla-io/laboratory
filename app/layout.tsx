@@ -13,14 +13,12 @@ import {
   BreadcrumbList,
   BreadcrumbItem,
   BreadcrumbLink,
-  BreadcrumbSeparator,
-  BreadcrumbPage
 } from "@/components/ui/breadcrumb"
 import { Separator } from '@radix-ui/react-separator';
 
 import { AppSidebar } from "@/components/application/sidebar"
-import { BreadcrumbItemPath } from '../components/application/client/breadcrumb-item-path';
-import { Providers } from "./store/Providers";
+import { BreadcrumbItemPath } from '@/components/application/client/breadcrumb-item-path';
+import { Providers } from "@/store/Providers";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",

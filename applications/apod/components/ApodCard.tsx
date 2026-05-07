@@ -7,7 +7,7 @@ import {
     ItemTitle,
 } from "@/components/ui/item"
 import { SimpleApod } from "../interfaces/SimpleApod";
-import { ApodAction } from "./ApodAction";
+import { ApodFavoriteToggleAction } from "./ApodFavoriteToggleAction";
 import Link from "next/link";
 
 interface Props {
@@ -33,7 +33,7 @@ export const ApodCard = ({ apod }: Props) => {
                 </ItemTitle>
             </ItemContent>
             <ItemActions>
-                <ApodAction url={url} />
+                <ApodFavoriteToggleAction apod={apod} />
             </ItemActions>
         </Item>
     )

@@ -1,10 +1,12 @@
 import { configureStore } from '@reduxjs/toolkit'
 import counterReducer from './counter/counterSlice'
+import apodFavoritesReducer from './apod/apodFavoritesSlice'
 import { useDispatch, useSelector } from 'react-redux'
 
 export const store = configureStore({
     reducer: {
-        counter: counterReducer
+        counter: counterReducer,
+        apodFavorites: apodFavoritesReducer
     },
 })
 

@@ -12,9 +12,10 @@ export default function CounterPage() {
     return (
         <>
             <h1 className="block text-4xl mb-3">
-                Working with <Link className="text-cyan-800 dark:text-cyan-400 hover:underline" href={'https://react.dev/reference/react/useState'} target='_blank'>useState</Link>
+                Working with <Link href={'https://react.dev/reference/react/useState'} target='_blank'><s>useState</s></Link> <Link href="" target="_blank">Redux toolkit</Link>
             </h1>
-            <p className="text-xl">Basic useState example. The inital value (20) was passed from the server but the component itself (<span className="italic">Counter application</span>) was created from the client side.</p>
+            <p className="text-xl"><s>Basic useState example. The initoal value (20) was passed from the server but the component itself (<span className="italic">Counter application</span>) was created from the client side.</s></p>
+            <p className="mt-3 text-xl">Basic Redux example. The initial value (20) was passed from server to the component; once there, state is sets with that value in order to dispatch actions. Also, a check flag slice is used in order to keep the value when navigate thru the site.</p>
             <Counter initialValue={20} />
             <hr />
             <div className="flex flex-col items-start mt-5">

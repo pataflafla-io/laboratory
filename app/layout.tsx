@@ -32,7 +32,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "lab.pataflafla.io",
+  title: "Just learn!",
   description: "Space used to publish/share content that I've learned, or I'm currently learning. Mostly JavaScript stuff.",
 };
 

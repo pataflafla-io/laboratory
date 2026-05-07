@@ -3,6 +3,7 @@
 import { Button } from "@/components/ui/button"
 import { useAppSelector } from '@/store';
 import { useDispatch } from 'react-redux';
+import { addOne, substractOne, resetCount } from '@/store/counter/counterSlice';
 import { CounterResponse } from '@/app/api/counter/CounterResponse';
 
 interface Props {

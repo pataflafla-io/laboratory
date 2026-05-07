@@ -1,6 +1,7 @@
 'use client';
 
 import { BreadcrumbPage, BreadcrumbItem, BreadcrumbSeparator, BreadcrumbLink } from '@/components/ui/breadcrumb'
+import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { Fragment } from 'react/jsx-runtime';
 
@@ -19,7 +20,7 @@ export const BreadcrumbItemPath = () => {
                         <BreadcrumbItem>
                             {i === paths.length - 1
                                 ? <BreadcrumbPage>{path}</BreadcrumbPage>
-                                : <BreadcrumbLink href={`/${path}`}>{path}</BreadcrumbLink>
+                                : <Link href={`/${path}`}>{path}</Link>
                             }
                         </BreadcrumbItem>
                     </Fragment>

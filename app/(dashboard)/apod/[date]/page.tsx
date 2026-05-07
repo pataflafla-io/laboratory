@@ -7,6 +7,7 @@ import Link from "next/link";
 
 import { notFound } from "next/navigation";
 import { HeartIcon } from 'lucide-react';
+import { ApodFavoriteToggleAction } from "@/applications/apod/components/ApodFavoriteToggleAction";
 
 
 interface Props {
@@ -58,7 +59,7 @@ export default async function ApodSinglePage({ params }: Props) {
             {code && notFound()}
             <h1 className="text-4xl mb-3 flex items-center justify-between">
                 {title}
-                <Link href=""><HeartIcon /></Link>
+                <ApodFavoriteToggleAction apod={{ date, url, title }} />
             </h1>
             {explanation}
 

@@ -1,10 +1,8 @@
 'use client';
 
-import { useEffect } from 'react'
 import { Button } from "@/components/ui/button"
 import { useAppSelector } from '@/store';
 import { useDispatch } from 'react-redux';
-import { initCounterState, addOne, substractOne, resetCount } from '@/store/counter/counterSlice';
 import { CounterResponse } from '@/app/api/counter/CounterResponse';
 
 interface Props {
@@ -19,13 +17,6 @@ const getApiCounter = async (): Promise<CounterResponse> => {
 export const Counter = ({ initialValue = 0 }: Props) => {
     const count = useAppSelector((state) => state.counter.count);
     const dispatch = useDispatch();
-
-    useEffect(() => {
-        getApiCounter().then(value => {
-            const { count } = value;
-            dispatch(initCounterState(count))
-        })
-    }, [dispatch])
 
     //const [value, setvalue] = useState(initialValue);
     const handleAddClick = () => {

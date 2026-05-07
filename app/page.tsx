@@ -12,8 +12,6 @@ export default function HomePage() {
               &nbsp;framework<br />alongside <Link href="https://ui.shadcn.com/" target="_blank">Shadcn</Link>
               &nbsp;components as design system and <Link href="https://tailwindcss.com/" target="_blank">TailwindCSS</Link>.</p>
             <p className="text-pretty text-lg">Also, the code is deployed at <Link href="https://www.github.com/" target="_blank">github</Link> and hosted/deployed to <Link href="https://www.vercel.com/" target="_blank">Vercel</Link>. </p>
-            <br />
-            <p className="text-pretty text-lg">You can reach me at </p>
           </div>
         </section>
       </main>

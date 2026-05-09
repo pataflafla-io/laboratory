@@ -23,8 +23,9 @@ export default async function CounterPage() {
                 <ul className="list-disc list-inside">
                     <li><Link href="https://redux-toolkit.js.org/" target="_blank">Redux toolkit</Link></li>
                     <li><Link href="https://nextjs.org/docs/app/getting-started/route-handlers" target="_blank">Route handlers</Link></li>
+                    <li>Since <Link href="https://nextjs.org/blog/next-13">NextJS 13</Link>, all components are <Link href='https://nextjs.org/blog/next-13#server-components'>Server Components</Link>. <Link href='https://nextjs.org/docs/app/api-reference/directives/use-client'>'use client'</Link> is mandatory in order to work with <Link href='https://react.dev/reference/react/hooks'>React hooks</Link></li>
                 </ul>
-            </div>
+            </div >
             <hr className="mt-5 mb-5" />
             <Counter initialValue={1} />
         </>

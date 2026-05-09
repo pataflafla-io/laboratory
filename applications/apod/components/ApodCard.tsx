@@ -18,14 +18,16 @@ export const ApodCard = ({ apod }: Props) => {
     return (
         <Item variant="outline">
             <ItemHeader>
-                <Image
-                    src={imageUrl}
-                    alt={title}
-                    width={256}
-                    height={256}
-                    className="aspect-square w-full rounded-sm object-cover grayscale brightness-50"
-                    priority={false}
-                />
+                <Link className="unstyled cursor-pointer w-full" href={`apod/${url}`}>
+                    <Image
+                        src={imageUrl}
+                        alt={title}
+                        width={256}
+                        height={256}
+                        className="aspect-square w-full rounded-sm object-cover grayscale transition-all duration-500 hover:grayscale-0 brightness-50"
+                        priority={false}
+                    />
+                </Link>
             </ItemHeader>
             <ItemContent>
                 <ItemTitle>

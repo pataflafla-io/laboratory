@@ -1,36 +1,12 @@
-import {
-    ItemGroup,
-} from "@/components/ui/item"
-
-
-import { MediaType, NasaResponse } from './interfaces/NasaResponse';
-import { SimpleApod } from "./interfaces/SimpleApod";
+'use client';
 
 import { ApodGrid } from "@/applications/apod/components/ApodGrid";
-import { substractingDaysFromToday } from "@/lib/helpers/substractsDaysFromToday";
-import { cacheLife } from "next/cache";
+import { useAppSelector } from "@/store";
 
-const getApods = async (howMany: number): Promise<SimpleApod[]> => {
+export const ApodFavorites = () => {
+    const apodFavoritesList = useAppSelector(store => store.apodFavorites);
 
-    'use cache';
-    cacheLife('days');
-    try {
-        const env = process.env.NASA_KEY;
-        const limit = substractingDaysFromToday(howMany)
-        const data: NasaResponse[] = await fetch(`https://api.nasa.gov/planetary/apod?api_key=${env}&start_date=${limit}`)
-            .then(response => response.json());
-
-        const apods: SimpleApod[] = data.filter((apod) => apod.media_type === MediaType.Image)
-            .map(({ date, title, url }: NasaResponse) => ({ date, title, url }))
-        return apods;
-    } catch (error) {
-        return []
-    }
-}
-export const ApodFavorites = async () => {
     return (
-        <ItemGroup className="grid grid-cols-3 gap-4 mt-5 mb-5">
-            <ApodGrid apods={[]} />
-        </ItemGroup>
+        <ApodGrid apods={Object.values(apodFavoritesList)} />
     )
 }

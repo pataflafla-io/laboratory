@@ -3,10 +3,8 @@ import { NasaResponse } from "@/applications/apod/interfaces/NasaResponse";
 import { substractingDaysFromToday } from "@/lib/helpers/substractsDaysFromToday";
 import { Metadata } from "next";
 import { cacheTag } from "next/cache";
-import Link from "next/link";
 
 import { notFound } from "next/navigation";
-import { HeartIcon } from 'lucide-react';
 import { ApodFavoriteToggleAction } from "@/applications/apod/components/ApodFavoriteToggleAction";
 
 

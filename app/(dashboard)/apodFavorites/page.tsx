@@ -15,10 +15,10 @@ export default function ApodFavoritesMainPage() {
                 <Link href='https://redux-toolkit.js.org/introduction/getting-started' target='_blank'>Redux + Redux Toolkit</Link>
             </h1>
             <div className="flex flex-col items-start mt-5">
-                <h3 className="text-xl">What I've learned:</h3>
+                <p>@ToDo: Update this document</p>
             </div>
             <hr className="mt-5 mb-5" />
-            <ItemGroup className="grid grid-cols-3 gap-4 mt-5 mb-5">
+            <ItemGroup className="mt-5 mb-5">
                 <ApodFavorites />
             </ItemGroup>
         </>

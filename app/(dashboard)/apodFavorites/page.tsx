@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { ApodFavorites } from "@/applications/apod/apodFavoritesApp";
+import { ItemGroup } from "@/components/ui/item";
 
 export const metadata: Metadata = {
     title: "APoD favorites",
@@ -17,7 +18,9 @@ export default function ApodFavoritesMainPage() {
                 <h3 className="text-xl">What I've learned:</h3>
             </div>
             <hr className="mt-5 mb-5" />
-            <ApodFavorites />
+            <ItemGroup className="grid grid-cols-3 gap-4 mt-5 mb-5">
+                <ApodFavorites />
+            </ItemGroup>
         </>
     );
 }

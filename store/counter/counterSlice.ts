@@ -1,12 +1,14 @@
-import { createSlice, PayloadAction } from '@reduxjs/toolkit'
+import { CounterResponse } from '@/applications/counter/interfaces/CounterResponse';
+import { createSlice, createAsyncThunk, PayloadAction } from '@reduxjs/toolkit'
 
 interface CounterState {
     count: number,
     isReady: boolean
 }
 
+const DEFAULT_INITIAL_VALUE = 1;
 const initialState: CounterState = {
-    count: 5,
+    count: DEFAULT_INITIAL_VALUE,
     isReady: false
 }
 
@@ -14,11 +16,6 @@ const counterSlice = createSlice({
     name: 'counter',
     initialState,
     reducers: {
-        initCounterState: (state, action: PayloadAction<number>) => {
-            if (state.isReady) return;
-            state.count = action.payload;
-            state.isReady = true;
-        },
         addOne: (state) => {
             state.count++;
         },
@@ -30,9 +27,32 @@ const counterSlice = createSlice({
             if (action.payload < 0) action.payload = 0;
             state.count = action.payload;
         }
+    },
+    extraReducers: (builder) => {
+        builder
+            .addCase(fetchInitialData.pending, (state) => {
+                state.isReady = false;
+            })
+            .addCase(fetchInitialData.fulfilled, (state, action) => {
+                state.isReady = true;
+                state.count = action.payload;
+            })
+            .addCase(fetchInitialData.rejected, (state, action) => {
+                state.isReady = true;
+                state.count = action.payload as number;
+            });
+    },
+});
+
+export const fetchInitialData = createAsyncThunk('counter/getInitialData', async (_, { rejectWithValue }) => {
+    try {
+        const response: CounterResponse = await fetch('/api/counter').then(res => res.json());
+        return response.count;
+    } catch (err) {
+        return rejectWithValue(DEFAULT_INITIAL_VALUE)
     }
 });
 
-export const { initCounterState, addOne, substractOne, resetCount } = counterSlice.actions;
+export const { addOne, substractOne, resetCount } = counterSlice.actions;
 
 export default counterSlice.reducer;

@@ -22,7 +22,7 @@ export const Counter = ({ initialValue = 0 }: Props) => {
     return (
         <div className='flex flex-col mt-10 mb-10'>
 
-            <h2 className="text-3xl font-semibold tracking-tight">
+            <h2 className="scroll-m-20 pb-2 text-3xl font-semibold tracking-tight first:mt-0">
                 Current value: {value}
             </h2>
             <div className='flex gap-3 mt-5'>

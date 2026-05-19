@@ -11,10 +11,10 @@ export const metadata: Metadata = {
 export default function CounterPage() {
     return (
         <>
-            <h1 className="block text-4xl mb-3">
+            <h1 className="scroll-m-20 text-4xl font-extrabold tracking-tight text-balance">
                 Working with <Link className="text-cyan-800 dark:text-cyan-400 hover:underline" href={'https://react.dev/reference/react/useState'} target='_blank'>useState</Link>
             </h1>
-            <p className="text-xl">Basic useState example. The inital value (20) was passed from the server but the component itself (<span className="italic">Counter application</span>) was created from the client side.</p>
+            <p className="leading-7 [&:not(:first-child)]:mt-6">Basic useState example. The inital value (20) was passed from the server but the component itself (<span className="italic">Counter application</span>) was created from the client side.</p>
             <Counter initialValue={20} />
             <hr />
             <div className="flex flex-col items-start mt-5">

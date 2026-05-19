@@ -73,8 +73,8 @@ export default function RootLayout({
                   </BreadcrumbList>
                 </Breadcrumb>
               </header>
-              <div className="flex flex-1 flex-col gap-4 p-4">
-                <div className="min-h-screen flex-1 rounded-xl md:min-h-min">
+              <div className="flex flex-col gap-5 p-7">
+                <div className="p-7 grid">
                   {children}
                 </div>
               </div>

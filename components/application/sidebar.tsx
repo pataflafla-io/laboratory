@@ -1,4 +1,3 @@
-import Link from 'next/link';
 import Image from 'next/image';
 import {
   Sidebar,
@@ -8,13 +7,13 @@ import {
   SidebarGroupLabel,
   SidebarHeader,
   SidebarMenu,
-  SidebarMenuButton,
   SidebarMenuItem,
   SidebarRail,
 } from '@/components/ui/sidebar';
 
 import { GiAstronautHelmet, GiCalculator, GiChecklist, GiFootprint, GiHeartPlus } from "react-icons/gi";
 import { SidebarItem } from './client/sidebar-item';
+import Link from 'next/link';
 
 
 // This is sample data.
@@ -66,7 +65,7 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
     <Sidebar {...props}>
       <SidebarHeader className="flex flex-row items-center ml-2 mt-2 bg-background">
         <Image src={'/assets/flask-2.png'} alt='' width={40} height={40} />
-        <span className="text-xl text-stone-300 italic">{'<lab { ...props } />'}</span>
+        <Link href="/" className='unstyled "text-xl text-stone-300 italic hover:text-stone-500'>{'<Learn { ...props } />'}</Link>
       </SidebarHeader>
       <SidebarContent className='bg-background'>
         {/* We create a SidebarGroup for each parent. */}

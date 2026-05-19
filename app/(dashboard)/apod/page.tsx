@@ -10,15 +10,16 @@ export const metadata: Metadata = {
 export default function ApodMainPage() {
     return (
         <>
-            <h1 className="block text-2xl mb-3">
-                <ul className="flex">
-                    <li className="after:ml-1 after:content-['/'] after:mr-1"><Link href='https://nextjs.org/docs/pages/building-your-application/rendering/server-side-rendering' target='_blank'>Server Side Rendering</Link></li>
-                    <li className="after:ml-1 after:content-['/'] after:mr-1"><Link href='https://nextjs.org/docs/pages/guides/incremental-static-regeneration' target='_blank'>Incremental Static Regeneration</Link></li>
-                    <li><Link href='https://nextjs.org/docs/pages/building-your-application/rendering/static-site-generation' target='_blank'>Static Site Generation</Link></li>
+            <h1 className="scroll-m-20 text-4xl font-extrabold tracking-tight text-balance flex">
+                <span>Working with</span>
+                <ul className="flex ml-2">
+                    <li className="after:font-normal after:ml-1 after:content-['/'] after:mr-1"><Link href='https://nextjs.org/docs/pages/building-your-application/rendering/server-side-rendering' target='_blank'>SSR</Link></li>
+                    <li className="after:font-normal after:ml-1 after:content-['/'] after:mr-1"><Link href='https://nextjs.org/docs/pages/guides/incremental-static-regeneration' target='_blank'>ISR</Link></li>
+                    <li><Link href='https://nextjs.org/docs/pages/building-your-application/rendering/static-site-generation' target='_blank'>SSG</Link></li>
                 </ul>
             </h1>
-            <p>What we've got here is a server fetch to <Link href='https://api.nasa.gov/' target='_blank'>NASA APOD API</Link> (<i>aka Astronomy Picture of the Day</i>)<br /> thru an <Link href='https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/async_function' target='_blank'>async function</Link>, once the response then the data is passed to the client in order to interact with it.</p >
-            <p>An API KEY is mandatory in order to be able to hit the endpoint with expanded usage</p>
+            <p className="leading-7 [&:not(:first-child)]:mt-6">What we've got here is a server fetch to <Link href='https://api.nasa.gov/' target='_blank'>NASA APOD API</Link> (<i>aka Astronomy Picture of the Day</i>)<br /> thru an <Link href='https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/async_function' target='_blank'>async function</Link>, once the response then the data is passed to the client in order to interact with it.</p >
+            <p className="leading-7 [&:not(:first-child)]:mt-6">An API KEY is mandatory in order to be able to hit the endpoint with expanded usage</p>
             <div className="flex flex-col items-start mt-5">
                 <h3 className="text-xl">What I've learned:</h3>
                 <ul className="list-disc list-inside">

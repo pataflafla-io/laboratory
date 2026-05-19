@@ -35,7 +35,7 @@ export const metadata: Metadata = {
   description: "Space used to publish/share content that I've learned, or I'm currently learning. Mostly JavaScript stuff.",
 };
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;

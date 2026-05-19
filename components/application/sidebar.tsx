@@ -1,4 +1,3 @@
-import Link from 'next/link';
 import Image from 'next/image';
 import {
   Sidebar,
@@ -8,12 +7,11 @@ import {
   SidebarGroupLabel,
   SidebarHeader,
   SidebarMenu,
-  SidebarMenuButton,
   SidebarMenuItem,
   SidebarRail,
 } from '@/components/ui/sidebar';
 
-import { GiAstronautHelmet, GiCalculator } from "react-icons/gi";
+import { GiAstronautHelmet, GiCalculator, GiChecklist, GiFootprint } from "react-icons/gi";
 import { SidebarItem } from './client/sidebar-item';
 
 
@@ -34,6 +32,21 @@ const data = {
           icon: <GiAstronautHelmet />,
           title: 'Apod',
           url: '/apod',
+        },
+        {
+          icon: <GiChecklist />,
+          title: 'ToDo with Rest Api',
+          url: '/todo-with-rest-api',
+        },
+        {
+          icon: <GiChecklist />,
+          title: 'ToDo with Server Actions',
+          url: '/todo-with-server-actions',
+        },
+        {
+          icon: <GiFootprint />,
+          title: 'useOptimistic',
+          url: '/useoptimistic',
         },
       ],
     },

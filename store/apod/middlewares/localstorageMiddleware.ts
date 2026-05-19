@@ -1,5 +1,5 @@
 import { RootState } from "@/store";
-import { Dispatch, Action, MiddlewareAPI } from "@reduxjs/toolkit";
+import { Dispatch, Action, MiddlewareAPI, Middleware } from "@reduxjs/toolkit";
 
 export const localstorageMiddleware = (state: MiddlewareAPI) => (next: Dispatch) => (action: Action) => {
     // next(action);

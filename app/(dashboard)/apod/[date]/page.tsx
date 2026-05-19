@@ -35,7 +35,6 @@ export const generateMetadata = async ({ params }: Props): Promise<Metadata> => 
 }
 
 const getApod = async (date: string): Promise<NasaResponse> => {
-    cacheTag('apod', date);
     try {
         const env = process.env.NASA_KEY;
         const data: NasaResponse = await fetch(`https://api.nasa.gov/planetary/apod?api_key=${env}&date=${date}`)

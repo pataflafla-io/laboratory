@@ -35,7 +35,6 @@ export const generateMetadata = async ({ params }: Props): Promise<Metadata> => 
 }
 
 const getApod = async (date: string): Promise<NasaResponse> => {
-    'use cache';
     cacheTag('apod', date);
     try {
         const env = process.env.NASA_KEY;

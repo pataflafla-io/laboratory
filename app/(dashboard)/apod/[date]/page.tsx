@@ -3,10 +3,9 @@ import { NasaResponse } from "@/applications/apod/interfaces/NasaResponse";
 import { substractingDaysFromToday } from "@/lib/helpers/substractsDaysFromToday";
 import { Metadata } from "next";
 import { cacheTag } from "next/cache";
-import Link from "next/link";
 
 import { notFound } from "next/navigation";
-import { HeartIcon } from 'lucide-react';
+import { ApodFavoriteToggleAction } from "@/applications/apod/components/ApodFavoriteToggleAction";
 
 
 interface Props {
@@ -36,8 +35,6 @@ export const generateMetadata = async ({ params }: Props): Promise<Metadata> => 
 }
 
 const getApod = async (date: string): Promise<NasaResponse> => {
-    'use cache';
-    cacheTag('apod', date);
     try {
         const env = process.env.NASA_KEY;
         const data: NasaResponse = await fetch(`https://api.nasa.gov/planetary/apod?api_key=${env}&date=${date}`)
@@ -58,7 +55,7 @@ export default async function ApodSinglePage({ params }: Props) {
             {code && notFound()}
             <h1 className="text-4xl mb-3 flex items-center justify-between">
                 {title}
-                <Link href=""><HeartIcon /></Link>
+                <ApodFavoriteToggleAction apod={{ date, url, title }} />
             </h1>
             {explanation}
 

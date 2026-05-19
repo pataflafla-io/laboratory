@@ -11,7 +11,7 @@ import {
   SidebarRail,
 } from '@/components/ui/sidebar';
 
-import { GiAstronautHelmet, GiCalculator, GiChecklist, GiFootprint } from "react-icons/gi";
+import { GiAstronautHelmet, GiCalculator, GiChecklist, GiFootprint, GiHeartPlus } from "react-icons/gi";
 import { SidebarItem } from './client/sidebar-item';
 import Link from 'next/link';
 
@@ -31,8 +31,13 @@ const data = {
         },
         {
           icon: <GiAstronautHelmet />,
-          title: 'Apod',
+          title: 'APoD',
           url: '/apod',
+        },
+        {
+          icon: <GiHeartPlus />,
+          title: 'APoD favorites',
+          url: '/apodFavorites',
         },
         {
           icon: <GiChecklist />,
